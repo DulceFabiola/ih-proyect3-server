@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 // //3.RUTAS
-// app.use("/courses", require("./routes/courses"));
+app.use("/courses", require("./routes/courses"));
 
 // //users
 app.use("/users", require("./routes/users"));
