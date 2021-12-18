@@ -14,7 +14,7 @@ exports.postSignup = async (req, res) => {
     password,
     image,
     experience,
-    rol,
+    role,
   } = req.body;
 
   //2.VALIDACIONES
@@ -40,7 +40,7 @@ exports.postSignup = async (req, res) => {
       email,
       image,
       experience,
-      rol,
+      role,
       //nombre de la prop del modelo:password
       password: hashedPassword,
     });
