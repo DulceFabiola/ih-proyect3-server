@@ -40,7 +40,7 @@ const userSchema = Schema(
       type: String,
       default: "",
     },
-    rol: {
+    role: {
       type: String,
       required: true,
     },
