@@ -6,7 +6,7 @@ const userSchema = Schema(
     name: {
       type: String,
       trim: true,
-      required: [true, "Username is required"],
+      required: [true, "Nombre de usuario es requerido"],
     },
     lastname: {
       type: String,
@@ -26,19 +26,19 @@ const userSchema = Schema(
       unique: true, //unico email, no permite registrar 2 veces el mimso correo
       lowercase: true, //solo minusculas
       trim: true, //no permite espacios
-      match: [/^\S+@\S+\.\S+$/, "Use a valid email"], //validar que sea un correo con una expresion regular
+      match: [/^\S+@\S+\.\S+$/, "Por favor, use un email valido"], //validar que sea un correo con una expresion regular
     },
     password: {
       type: String,
-      required: [true, "Password is required"],
+      required: [true, "Password es requerido"],
     },
     image: {
       type: String,
-      required: "",
+      default: "",
     },
     experience: {
       type: String,
-      required: "",
+      default: "",
     },
     rol: {
       type: String,

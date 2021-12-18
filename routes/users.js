@@ -1,10 +1,11 @@
 // 1. IMPORTACIONES
 const express = require("express");
 const router = express.Router();
-
+const authorization = require("./../middleware/authorization");
 const {
   postSignup,
   postLogin,
+  getVerifyToken,
   postLogout,
 } = require("./../controllers/userController");
 
@@ -13,13 +14,13 @@ const {
 router.post("/signup", postSignup);
 
 //INICIAR SESION DE USUARIO
-//router.post("/login", postLogin);
+router.post("/login", postLogin);
 
 //VERIFICACON DE USUARIO
-//router.get("/verifytoken", getVerifyToken);
+router.get("/verifytoken", authorization, getVerifyToken);
 
 //LOGOUT
-// router.post("/logout", isLoggedIn, postLogout);
+// router.post("/logout", postLogout);
 
 // 3. EXPORTACIÓN
 module.exports = router;
