@@ -167,3 +167,37 @@ exports.getVerifyToken = async (req, res) => {
     });
   }
 };
+
+//EDITAR DATOS DE USUARIO
+exports.editUser = async (req, res) => {
+  // const foundUser = await User.findById(req.user.id).select("-password");
+  // console.log(foundUser);
+
+  //obtiene datos del body
+  const { id } = req.params;
+  const { name, lastname, country, description, image, experience } = req.body;
+  try {
+    const updateUser = await User.findByIdAndUpdate(
+      id,
+      {
+        name,
+        lastname,
+        country,
+        description,
+        image,
+        experience,
+      },
+      { new: true }
+    );
+    res.json({
+      msg: "Datos actualizada con éxito",
+      data: updateUser,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      msg: "Hubo un error actualizando los datos.",
+      error: error,
+    });
+  }
+};

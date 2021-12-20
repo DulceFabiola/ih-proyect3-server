@@ -6,7 +6,7 @@ const {
   postSignup,
   postLogin,
   getVerifyToken,
-  postLogout,
+  editUser,
 } = require("./../controllers/userController");
 
 // 2. ROUTER
@@ -19,8 +19,8 @@ router.post("/login", postLogin);
 //VERIFICACON DE USUARIO
 router.get("/verifytoken", authorization, getVerifyToken);
 
-//LOGOUT
-// router.post("/logout", postLogout);
+//EDITAR DATOS DE USUARIO
+router.put("/editprofile/:id", editUser);
 
 // 3. EXPORTACIÓN
 module.exports = router;
