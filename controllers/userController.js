@@ -64,19 +64,18 @@ exports.postSignup = async (req, res) => {
         if (error) throw error;
 
         res.json({
-          msg: "Token correctamente generado.",
           data: token,
         });
       }
     );
   } catch (error) {
     if (error.code === 11000) {
-      res.status(500).json({
+      res.json({
         msg: "Email ya registrado. Intente con otro",
         error: error,
       });
     } else {
-      res.status(500).json({
+      res.json({
         msg: "Hubo un error con la creacion de usuario",
         error: error,
       });
