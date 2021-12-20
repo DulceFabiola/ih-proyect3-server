@@ -6,6 +6,8 @@ const {
   postSignup,
   postLogin,
   getVerifyToken,
+  readAllUsers,
+  readOneUser,
   editUser,
 } = require("./../controllers/userController");
 
@@ -18,6 +20,12 @@ router.post("/login", postLogin);
 
 //VERIFICACON DE USUARIO
 router.get("/verifytoken", authorization, getVerifyToken);
+
+//lEER USUARIOS
+router.get("/readall", readAllUsers);
+
+//LEER UN USUARIO
+router.get("/readone/:id", readOneUser);
 
 //EDITAR DATOS DE USUARIO
 router.put("/editprofile/:id", editUser);

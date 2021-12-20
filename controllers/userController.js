@@ -168,6 +168,41 @@ exports.getVerifyToken = async (req, res) => {
   }
 };
 
+//lEER USUARIOS
+exports.readAllUsers = async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.json({
+      msg: "Usuarios obtenidos con éxito",
+      data: users,
+    });
+  } catch (error) {
+    res.status(500).json({
+      msg: "Hubo un error obteniendo los datos",
+      error: error,
+    });
+  }
+};
+
+//LEER UN USUARIO
+exports.readOneUser = async (req, res) => {
+  //obtener los parametros
+  //de la url vamos a obtener datos
+  const { id } = req.params;
+
+  try {
+    const user = await User.findById(id);
+    res.json({
+      msg: "Usuario obtenido con éxito",
+      data: user,
+    });
+  } catch (error) {
+    res.status(500).json({
+      msg: "Hubo un error obteniendo los datos.",
+      error: error,
+    });
+  }
+};
 //EDITAR DATOS DE USUARIO
 exports.editUser = async (req, res) => {
   // const foundUser = await User.findById(req.user.id).select("-password");
