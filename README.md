@@ -115,7 +115,7 @@ curl --location --request POST 'https://ih-project3-fa.herokuapp.com/courses/cre
 - Leer todos los cursos
 
 ```shell
-curl --location --request GET 'http://localhost:3005/courses/readAll'
+curl --location --request GET 'https://ih-project3-fa.herokuapp.com/courses/readAll'
 ```
 
 - Leer un curso
