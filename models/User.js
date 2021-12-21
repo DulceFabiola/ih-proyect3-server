@@ -44,6 +44,7 @@ const userSchema = Schema(
       type: String,
       required: true,
     },
+    mycourses: [{ type: Schema.Types.ObjectId, ref: "Course" }],
   },
   {
     timestamps: true, //date en la q fue creado

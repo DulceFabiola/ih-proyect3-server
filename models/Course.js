@@ -39,7 +39,7 @@ const courseSchema = Schema({
     type: String,
     default: "",
   },
-  owner: String,
+  owner: { type: Schema.Types.ObjectId, ref: "User" },
 });
 
 //3.MODELO
