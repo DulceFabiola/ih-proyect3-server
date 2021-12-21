@@ -1,5 +1,6 @@
 //IMPORTACIONES
 const Course = require("./../models/Course");
+const User = require("./../models/User");
 //CREAR CURSO
 exports.createCourse = async (req, res) => {
   //Obtener los datos del formulario
@@ -29,6 +30,12 @@ exports.createCourse = async (req, res) => {
       link,
       owner,
     });
+    // const currentUser = req.user;
+    // const findUser = await User.findOne({ user: currentUser.id });
+
+    // const courseFind = await User.findOne({ user: currentUser.id }).populate(
+    //   "owner"
+    // );
     //Devolver una respuesta en un formato JSON
     res.json({
       msg: "Curso creado con éxito",

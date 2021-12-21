@@ -105,7 +105,7 @@ exports.postLogin = async (req, res) => {
     //5.VALIDAMOS SI EL PASSWORD COINCIDE...
 
     if (!verifiedPass) {
-      return await res.status(400).json({
+      return await res.json({
         msg: "El usuario o la contraseña son incorrectos",
       });
     }
@@ -129,15 +129,14 @@ exports.postLogin = async (req, res) => {
       (error, token) => {
         if (error) throw error;
         res.json({
-          msg: "Inicio de sesion exitoso",
           data: token,
         });
       }
     );
     return;
   } catch (error) {
-    res.status(500).json({
-      mgs: "Hubo un problema con la autenticacion",
+    res.json({
+      mgs: "Hubo un problema con la autenticación",
       data: error,
     });
   }
@@ -204,10 +203,6 @@ exports.readOneUser = async (req, res) => {
 };
 //EDITAR DATOS DE USUARIO
 exports.editUser = async (req, res) => {
-  // const foundUser = await User.findById(req.user.id).select("-password");
-  // console.log(foundUser);
-
-  //obtiene datos del body
   const { id } = req.params;
   const { name, lastname, country, description, image, experience } = req.body;
   try {
