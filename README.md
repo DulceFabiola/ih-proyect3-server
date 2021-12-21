@@ -42,7 +42,7 @@ $ npm run dev
 
 ## USO DE EP's
 
-API User:
+##### API User:
 
 - Registro de usuario
 
@@ -76,7 +76,22 @@ curl --location --request GET 'https://ih-project3-fa.herokuapp.com/users/verify
 
 ```
 
-API Courses:
+- Editar perfil
+
+```shell
+curl --location --request PUT 'https://ih-project3-fa.herokuapp.com/users/editprofile/61be0639d6a8f5f44bbb1655' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "Fa",
+    "lastname": "RM",
+    "country": "Mexico",
+    "description":"Profesor apasionado por la enseñanza ",
+    "image":"https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2018/08/fotos-perfil-whatsapp_16.jpg?itok=fl2H3Opv",
+    "experience":"5 años de experiencia"
+}'
+```
+
+##### API Courses:
 
 - Crear un curso
 
@@ -107,4 +122,30 @@ curl --location --request GET 'http://localhost:3005/courses/readAll'
 
 ```shell
 curl --location --request GET 'https://ih-project3-fa.herokuapp.com/courses/readone/61be07bfd6a8f5f44bbb165d'
+```
+
+- Editar un curso
+
+```shell
+curl --location --request PUT 'https://ih-project3-fa.herokuapp.com/courses/edit/61be07bfd6a8f5f44bbb165d' \
+--header 'Content-Type: application/json' \
+--data-raw '  {
+            "level": "B2",
+            "inscriptionDate": "18 de diciembre 2021",
+            "startDate": "24 de diciembre 2021",
+            "duration": "9 semanas",
+            "mode": "Online",
+            "schedule": "9:00-10:30 am",
+            "days": "Lunes, Miercoles y Viernes",
+            "subject": "Ingles",
+            "link": "",
+            "owner": ""
+        }'
+```
+
+- Eliminar un curso
+
+```shell
+curl --location --request DELETE 'https://ih-project3-fa.herokuapp.com/courses/delete/61be07bfd6a8f5f44bbb165d' \
+--data-raw ''
 ```
