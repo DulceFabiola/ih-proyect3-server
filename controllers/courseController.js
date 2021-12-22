@@ -18,6 +18,8 @@ exports.createCourse = async (req, res) => {
   } = req.body;
 
   try {
+    // const findUser = await User.findById(id);
+    // console.log(findUser);
     const newCourse = await Course.create({
       level,
       inscriptionDate,
@@ -30,16 +32,18 @@ exports.createCourse = async (req, res) => {
       link,
       owner,
     });
-    // const currentUser = req.user;
-    // const findUser = await User.findOne({ user: currentUser.id });
 
-    // const courseFind = await User.findOne({ user: currentUser.id }).populate(
-    //   "owner"
-    // );
-    //Devolver una respuesta en un formato JSON
+    const updatedUser = await User.findOneAndUpdate(
+      { id: owner },
+      {
+        $push: { mycourses: newCourse },
+      },
+      { new: true }
+    );
     res.json({
       msg: "Curso creado con éxito",
       data: newCourse,
+      user: updatedUser,
     });
   } catch (error) {
     //error en server
