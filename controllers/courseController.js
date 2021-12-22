@@ -102,6 +102,7 @@ exports.editCourse = async (req, res) => {
 
   //obtiene datos del body
   const {
+    language,
     level,
     inscriptionDate,
     startDate,
@@ -111,12 +112,14 @@ exports.editCourse = async (req, res) => {
     days,
     subject,
     link,
+    image,
     owner,
   } = req.body;
   try {
     const updateCourse = await Course.findByIdAndUpdate(
       id,
       {
+        language,
         level,
         inscriptionDate,
         startDate,
@@ -126,7 +129,8 @@ exports.editCourse = async (req, res) => {
         days,
         subject,
         link,
-        owner, //Propiedades a cambiar
+        image,
+        owner,
       },
       { new: true }
     );
