@@ -5,6 +5,7 @@ const User = require("./../models/User");
 exports.createCourse = async (req, res) => {
   //Obtener los datos del formulario
   const {
+    language,
     level,
     inscriptionDate,
     startDate,
@@ -14,6 +15,7 @@ exports.createCourse = async (req, res) => {
     days,
     subject,
     link,
+    image,
     owner,
   } = req.body;
 
@@ -21,6 +23,7 @@ exports.createCourse = async (req, res) => {
     // const findUser = await User.findById(id);
     // console.log(findUser);
     const newCourse = await Course.create({
+      language,
       level,
       inscriptionDate,
       startDate,
@@ -30,6 +33,7 @@ exports.createCourse = async (req, res) => {
       days,
       subject,
       link,
+      image,
       owner,
     });
 

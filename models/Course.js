@@ -3,6 +3,10 @@ const { Schema, model } = require("mongoose");
 
 //2.SCHEMA
 const courseSchema = Schema({
+  language: {
+    type: String,
+    required: true,
+  },
   level: {
     type: String,
     required: true,
@@ -36,6 +40,10 @@ const courseSchema = Schema({
     required: true,
   },
   link: {
+    type: String,
+    default: "",
+  },
+  image: {
     type: String,
     default: "",
   },
