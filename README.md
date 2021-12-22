@@ -149,3 +149,7 @@ curl --location --request PUT 'https://ih-project3-fa.herokuapp.com/courses/edit
 curl --location --request DELETE 'https://ih-project3-fa.herokuapp.com/courses/delete/61be07bfd6a8f5f44bbb165d' \
 --data-raw ''
 ```
+
+### Gracias por su tiempo y eneseñanza
+
+A Teacher [Mike](https://github.com/mikenieva), [Sam](https://github.com/ta-web-mex) y [K'ohnin](https://github.com/konhin2)
