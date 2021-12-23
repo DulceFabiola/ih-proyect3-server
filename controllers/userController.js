@@ -231,3 +231,28 @@ exports.editUser = async (req, res) => {
     });
   }
 };
+
+exports.addCourse = async (req, res) => {
+  const { id } = req.params;
+  console.log(req.user);
+  console.log(id);
+  try {
+    const updateUser = await User.findByIdAndUpdate(
+      req.user.id,
+      {
+        $push: { mycourses: id },
+      },
+      { new: true }
+    );
+    res.json({
+      msg: "Datos actualizada con éxito",
+      data: updateUser,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      msg: "Hubo un error actualizando los datos.",
+      error: error,
+    });
+  }
+};

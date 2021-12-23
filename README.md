@@ -91,6 +91,13 @@ curl --location --request PUT 'https://ih-project3-fa.herokuapp.com/users/editpr
 }'
 ```
 
+- Inscribir curso
+
+```shell
+curl --location --request POST 'http://localhost:3005/users/registercourse/61c39e317cc041342efd1251' \
+--header 'x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFjM2EzYzk2NzRhNzczY2MyZDcxZTRjIn0sImlhdCI6MTY0MDIzNTg2NSwiZXhwIjoxNjQwMjcxODY1fQ.5j9gaUU8GO5xvabiXU9xFCXDi1cCnYm6SKxkfAWOZ1w'
+```
+
 ##### API Courses:
 
 - Crear un curso

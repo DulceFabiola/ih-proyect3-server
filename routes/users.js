@@ -9,6 +9,7 @@ const {
   readAllUsers,
   readOneUser,
   editUser,
+  addCourse,
 } = require("./../controllers/userController");
 
 // 2. ROUTER
@@ -29,6 +30,8 @@ router.get("/readone/:id", readOneUser);
 
 //EDITAR DATOS DE USUARIO
 router.put("/editprofile/:id", editUser);
+
+router.post("/registercourse/:id", authorization, addCourse);
 
 // 3. EXPORTACIÓN
 module.exports = router;
