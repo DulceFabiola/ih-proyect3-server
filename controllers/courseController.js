@@ -35,13 +35,14 @@ exports.createCourse = async (req, res) => {
       owner,
     });
 
-    const updatedUser = await User.findOneAndUpdate(
-      { id: owner },
+    const updatedUser = await User.findByIdAndUpdate(
+      owner,
       {
         $push: { mycourses: newCourse },
       },
       { new: true }
     );
+    console.log(updatedUser);
     res.json({
       msg: "Curso creado con éxito",
       data: newCourse,

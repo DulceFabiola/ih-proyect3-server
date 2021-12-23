@@ -232,6 +232,7 @@ exports.editUser = async (req, res) => {
 
 exports.addCourse = async (req, res) => {
   const { id } = req.params;
+
   try {
     const updateUser = await User.findByIdAndUpdate(
       req.user.id,
