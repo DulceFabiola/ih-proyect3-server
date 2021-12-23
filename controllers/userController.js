@@ -153,7 +153,6 @@ exports.getVerifyToken = async (req, res) => {
     //pasar el token sin contrasena
 
     const foundUser = await User.findById(req.user.id).select("-password");
-    console.log(foundUser);
     return res.json({
       msg: "Datos de usuario encontrado",
       data: foundUser,
@@ -190,7 +189,6 @@ exports.readOneUser = async (req, res) => {
 
   try {
     const user = await User.findById(id).populate("mycourses");
-    console.log(user);
     res.json({
       msg: "Usuario obtenido con éxito",
       data: user,
@@ -234,8 +232,6 @@ exports.editUser = async (req, res) => {
 
 exports.addCourse = async (req, res) => {
   const { id } = req.params;
-  console.log(req.user);
-  console.log(id);
   try {
     const updateUser = await User.findByIdAndUpdate(
       req.user.id,

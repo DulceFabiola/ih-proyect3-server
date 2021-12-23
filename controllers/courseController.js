@@ -20,8 +20,6 @@ exports.createCourse = async (req, res) => {
   } = req.body;
 
   try {
-    // const findUser = await User.findById(id);
-    // console.log(findUser);
     const newCourse = await Course.create({
       language,
       level,
